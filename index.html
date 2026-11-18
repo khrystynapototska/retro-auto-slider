@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Автопарк | Ретро Авто — слайдер і галерея</title>
+    <meta name="description" content="Автопарк Ретро Авто: слайдер із ретро-автомобілями та галерея з переглядом у збільшеному форматі." />
+    <link rel="icon" type="image/png" href="assets/images/logo-mark.png" />
+
+    <!-- CSS бібліотек — у <head>, щоб стилі були готові до першого малювання сторінки -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11.1.14/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.36/dist/fancybox/fancybox.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* Запобігання FOUC: слайдер невидимий, доки Swiper не ініціалізовано */
+      .fleet-swiper { opacity: 0; transition: opacity 0.3s; }
+      .fleet-swiper.swiper-initialized { opacity: 1; }
+      .swiper-button-next, .swiper-button-prev { color: #fff; background: rgba(28, 25, 23, 0.55); width: 48px; height: 48px; border-radius: 9999px; }
+      .swiper-button-next::after, .swiper-button-prev::after { font-size: 18px; font-weight: 700; }
+      .swiper-pagination-bullet-active { background: #92400e; }
+    </style>
+  </head>
+  <body class="bg-stone-50 text-stone-900 antialiased">
+    <header class="bg-stone-900 text-stone-50">
+      <div class="mx-auto flex max-w-6xl items-center gap-3 px-4 py-4 sm:px-6">
+        <img src="assets/images/logo-mark-cream.png" alt="" width="40" height="40" class="h-10 w-10" />
+        <p class="font-serif text-xl font-bold">Ретро Авто</p>
+      </div>
+    </header>
+
+    <main class="mx-auto max-w-6xl px-4 py-10 sm:px-6">
+      <section aria-labelledby="fleet-title">
+        <h1 id="fleet-title" class="font-serif text-3xl font-bold sm:text-4xl">Наш автопарк</h1>
+        <p class="mt-2 max-w-2xl text-stone-700">Гортайте слайдер стрілками, крапками або свайпом на смартфоні.</p>
+
+        <!-- Swiper: слайдер -->
+        <div class="swiper fleet-swiper relative mt-6 overflow-hidden rounded-2xl" aria-label="Слайдер автопарку">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <figure class="overflow-hidden rounded-xl bg-white shadow">
+                <img src="assets/images/car-chevrolet-bel-air.webp" alt="Chevrolet Bel Air 1957 року, світлий кузов" width="1024" height="768" class="aspect-[4/3] w-full object-cover" />
+                <figcaption class="p-4"><span class="font-serif text-lg font-bold">Chevrolet Bel Air</span><span class="block text-sm text-stone-600">1957 · кабріолет, 4 місця</span></figcaption>
+              </figure>
+            </div>
+            <div class="swiper-slide">
+              <figure class="overflow-hidden rounded-xl bg-white shadow">
+                <img src="assets/images/car-gaz-21.webp" alt="ГАЗ-21 «Волга» радянських часів" width="1024" height="768" class="aspect-[4/3] w-full object-cover" />
+                <figcaption class="p-4"><span class="font-serif text-lg font-bold">ГАЗ-21 «Волга»</span><span class="block text-sm text-stone-600">1962 · седан, 4 місця</span></figcaption>
+              </figure>
+            </div>
+            <div class="swiper-slide">
+              <figure class="overflow-hidden rounded-xl bg-white shadow">
+                <img src="assets/images/car-mercedes-280sl.webp" alt="Mercedes-Benz 280 SL «Пагода»" width="1024" height="768" class="aspect-[4/3] w-full object-cover" />
+                <figcaption class="p-4"><span class="font-serif text-lg font-bold">Mercedes-Benz 280 SL</span><span class="block text-sm text-stone-600">1968 · родстер, 2 місця</span></figcaption>
+              </figure>
+            </div>
+            <div class="swiper-slide">
+              <figure class="overflow-hidden rounded-xl bg-white shadow">
+                <img src="assets/images/hero-cabriolet.webp" alt="Ретро-кабріолет на тлі міської вулиці" width="1344" height="768" class="aspect-[4/3] w-full object-cover" />
+                <figcaption class="p-4"><span class="font-serif text-lg font-bold">Класичний кабріолет</span><span class="block text-sm text-stone-600">для весільних кортежів</span></figcaption>
+              </figure>
+            </div>
+            <div class="swiper-slide">
+              <figure class="overflow-hidden rounded-xl bg-white shadow">
+                <div class="flex aspect-[4/3] w-full items-center justify-center bg-stone-900"><img src="assets/images/logo-stacked.png" alt="Логотип «Ретро Авто»" width="220" height="220" class="h-40 w-auto" /></div>
+                <figcaption class="p-4"><span class="font-serif text-lg font-bold">Оренда з водієм</span><span class="block text-sm text-stone-600">+500 грн/год · святкове оформлення +1200 грн</span></figcaption>
+              </figure>
+            </div>
+          </div>
+          <div class="swiper-button-prev" aria-label="Попередній слайд"></div>
+          <div class="swiper-button-next" aria-label="Наступний слайд"></div>
+          <div class="swiper-pagination !static mt-4"></div>
+        </div>
+      </section>
+
+      <!-- Fancybox: галерея -->
+      <section class="mt-14" aria-labelledby="gallery-title">
+        <h2 id="gallery-title" class="font-serif text-2xl font-bold sm:text-3xl">Галерея</h2>
+        <p class="mt-2 text-stone-700">Натисніть на фото, щоб відкрити його у збільшеному вигляді. У вікні перегляду фото гортаються стрілками, клавіатурою та свайпом.</p>
+        <ul class="mt-6 grid grid-cols-2 gap-3 md:grid-cols-4">
+          <li>
+            <a href="assets/images/car-chevrolet-bel-air.webp" data-fancybox="fleet" data-caption="Chevrolet Bel Air, 1957" class="block overflow-hidden rounded-lg focus-visible:outline focus-visible:outline-4 focus-visible:outline-amber-700">
+              <img src="assets/images/car-chevrolet-bel-air.webp" alt="Chevrolet Bel Air, мініатюра" width="1024" height="768" loading="lazy" class="aspect-square w-full object-cover transition hover:scale-105" />
+            </a>
+          </li>
+          <li>
+            <a href="assets/images/car-gaz-21.webp" data-fancybox="fleet" data-caption="ГАЗ-21 «Волга», 1962" class="block overflow-hidden rounded-lg focus-visible:outline focus-visible:outline-4 focus-visible:outline-amber-700">
+              <img src="assets/images/car-gaz-21.webp" alt="ГАЗ-21 «Волга», мініатюра" width="1024" height="768" loading="lazy" class="aspect-square w-full object-cover transition hover:scale-105" />
+            </a>
+          </li>
+          <li>
+            <a href="assets/images/car-mercedes-280sl.webp" data-fancybox="fleet" data-caption="Mercedes-Benz 280 SL, 1968" class="block overflow-hidden rounded-lg focus-visible:outline focus-visible:outline-4 focus-visible:outline-amber-700">
+              <img src="assets/images/car-mercedes-280sl.webp" alt="Mercedes-Benz 280 SL, мініатюра" width="1024" height="768" loading="lazy" class="aspect-square w-full object-cover transition hover:scale-105" />
+            </a>
+          </li>
+          <li>
+            <a href="assets/images/hero-cabriolet.webp" data-fancybox="fleet" data-caption="Кабріолет для весільного кортежу" class="block overflow-hidden rounded-lg focus-visible:outline focus-visible:outline-4 focus-visible:outline-amber-700">
+              <img src="assets/images/hero-cabriolet.webp" alt="Кабріолет, мініатюра" width="1344" height="768" loading="lazy" class="aspect-square w-full object-cover transition hover:scale-105" />
+            </a>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer class="mt-10 bg-stone-900 py-6 text-center text-sm text-stone-300">© 2026 Ретро Авто · Лабораторна робота № 10</footer>
+
+    <!-- JS бібліотек — наприкінці <body>, щоб не блокувати відображення HTML -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11.1.14/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.36/dist/fancybox/fancybox.umd.js"></script>
+    <script src="assets/js/init.js"></script>
+  </body>
+</html>
